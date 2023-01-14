@@ -6,7 +6,6 @@ const dotenv = require("dotenv");
 const nation = require("./nation");
 dotenv.config();
 app.use(cors());
-
 app.get("/home", async (req, res, next) => {
   try {
     const popularMovies = await axios
@@ -87,6 +86,6 @@ app.get("/detail", async (req, res, next) => {
   }
 });
 
-app.listen(8000, function () {
+app.listen(process.env.PORT || 8000, function () {
   console.log("CORS-enabled web server listening on port 8000");
 });
